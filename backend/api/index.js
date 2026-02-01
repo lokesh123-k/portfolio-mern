@@ -2,35 +2,25 @@ require("dotenv").config(); // MUST be first
 
 const express = require("express");
 const cors = require("cors");
-const connectDB = require("./config/db");
+const connectDB = require("../config/db"); // 👈 FIXED PATH
 
 const app = express();
 
-// ✅ CORS (VERY IMPORTANT)
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL, // frontend vercel URL
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
-
-// Body parser
+app.use(cors());
 app.use(express.json());
 
-// ✅ Connect DB safely
+// DB
 connectDB();
 
-// Routes
-app.use("/api/auth", require("./routes/auth"));
+// Routes (GO UP ONE LEVEL 👇)
+app.use("/api/auth", require("../routes/auth"));
 
-// Health check
+// Test route
 app.get("/", (req, res) => {
-  res.json({ message: "Portfolio Backend Server Running 🚀" });
+  res.send("Portfolio Backend Server Running 🚀");
 });
 
-// ❌ DO NOT use app.listen on Vercel
-// app.listen(PORT)
-
-// ✅ EXPORT app (THIS FIXES 500 ERROR)
-module.exports = app;
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
+});
