@@ -1,4 +1,4 @@
-require("dotenv").config(); // 🔥 MUST BE FIRST
+require("dotenv").config(); // MUST be first
 
 const express = require("express");
 const cors = require("cors");
@@ -6,22 +6,31 @@ const connectDB = require("./config/db");
 
 const app = express();
 
-app.use(cors());
+// ✅ CORS (VERY IMPORTANT)
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL, // frontend vercel URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
+// Body parser
 app.use(express.json());
 
-// DB
+// ✅ Connect DB safely
 connectDB();
 
 // Routes
 app.use("/api/auth", require("./routes/auth"));
-//app.use("/api/contact", require("./routes/contact"));
 
+// Health check
 app.get("/", (req, res) => {
-  res.send("Portfolio Backend Server Running 🚀");
+  res.json({ message: "Portfolio Backend Server Running 🚀" });
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log("Server started on port", PORT);
-  //console.log("JWT_SECRET:", process.env.JWT_SECRET); // 🔍 DEBUG LINE
-});
+// ❌ DO NOT use app.listen on Vercel
+// app.listen(PORT)
+
+// ✅ EXPORT app (THIS FIXES 500 ERROR)
+module.exports = app;
