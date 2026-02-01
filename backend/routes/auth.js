@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-// IMPORT CONTROLLER FUNCTIONS CORRECTLY
 const {
   registerUser,
   loginUser,

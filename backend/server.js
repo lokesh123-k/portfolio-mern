@@ -1,8 +1,7 @@
-require("dotenv").config(); // MUST be first
-
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const connectDB = require("../config/db"); // 👈 FIXED PATH
+const connectDB = require("./config/db");
 
 const app = express();
 
@@ -12,15 +11,14 @@ app.use(express.json());
 // DB
 connectDB();
 
-// Routes (GO UP ONE LEVEL 👇)
-app.use("/api/auth", require("../routes/auth"));
+// Routes
+app.use("/api/auth", require("./routes/auth"));
 
-// Test route
 app.get("/", (req, res) => {
   res.send("Portfolio Backend Server Running 🚀");
 });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
+  console.log("Server running on port", PORT);
 });
