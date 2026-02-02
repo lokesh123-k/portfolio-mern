@@ -18,17 +18,15 @@ const registerUser = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = await User.create({
+    await User.create({
       name,
       email,
       password: hashedPassword,
     });
 
-    res.status(201).json({
-      message: "User registered successfully",
-    });
-  } catch (error) {
-    console.error(error);
+    res.status(201).json({ message: "User registered successfully" });
+  } catch (err) {
+    console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 };
@@ -55,14 +53,10 @@ const loginUser = async (req, res) => {
     );
 
     res.json({ token });
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 };
 
-// 🔴 THIS EXPORT IS CRITICAL
-module.exports = {
-  registerUser,
-  loginUser,
-};
+module.exports = { registerUser, loginUser };

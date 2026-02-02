@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 export default function Signup({ onSignup, onLogin }) {
   const [form, setForm] = useState({
     name: "",
@@ -30,7 +32,7 @@ export default function Signup({ onSignup, onLogin }) {
     try {
       setLoading(true);
 
-      const res = await fetch("http://localhost:5000/api/auth/register", {
+      const res = await fetch(`${API_URL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,14 +48,14 @@ export default function Signup({ onSignup, onLogin }) {
 
       if (!res.ok) {
         alert(data.message || "Signup failed");
-        setLoading(false);
         return;
       }
 
       alert("Signup successful 🎉 Please login");
-      onSignup(); // go to login page
+      onSignup();
 
     } catch (error) {
+      console.error(error);
       alert("Server error");
     } finally {
       setLoading(false);
@@ -98,7 +100,7 @@ export default function Signup({ onSignup, onLogin }) {
             onChange={handleChange}
           />
 
-          <button className="signup-btn" type="submit" disabled={loading}>
+          <button type="submit" disabled={loading}>
             {loading ? "Creating account..." : "Sign Up"}
           </button>
         </form>
@@ -107,16 +109,6 @@ export default function Signup({ onSignup, onLogin }) {
           Already have an account?{" "}
           <span onClick={onLogin}>Log in</span>
         </p>
-
-        <div className="signup-divider">Or</div>
-
-        {/* UI only – not functional without OAuth */}
-        <button className="social google" disabled>
-          Sign up with Google
-        </button>
-        <button className="social facebook" disabled>
-          Sign up with Facebook
-        </button>
       </div>
     </div>
   );

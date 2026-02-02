@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 export default function Login({ onLogin, onSignup }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -8,7 +10,6 @@ export default function Login({ onLogin, onSignup }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation
     if (!email || !password) {
       alert("Please enter email and password");
       return;
@@ -17,15 +18,12 @@ export default function Login({ onLogin, onSignup }) {
     try {
       setLoading(true);
 
-      const response = await fetch("http://localhost:5000/api/auth/login", {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
@@ -35,12 +33,11 @@ export default function Login({ onLogin, onSignup }) {
         return;
       }
 
-      // ✅ Store login details
+      // ✅ Save token
       localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
 
       alert("Login successful ✅");
-      onLogin(); // Navigate to portfolio
+      onLogin();
 
     } catch (error) {
       console.error(error);
@@ -62,7 +59,6 @@ export default function Login({ onLogin, onSignup }) {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            autoComplete="email"
           />
 
           <input
@@ -70,7 +66,6 @@ export default function Login({ onLogin, onSignup }) {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            autoComplete="current-password"
           />
 
           <button type="submit" disabled={loading}>
