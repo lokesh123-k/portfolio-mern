@@ -16,7 +16,7 @@ export default function Projects() {
 
         {/* OPTIONAL: Project live link */}
         <a
-          href="https://your-project-site.com"
+          href="https://k-lstall-app.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
           className="btn"
