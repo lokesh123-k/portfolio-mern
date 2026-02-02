@@ -13,143 +13,20 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= NAVBAR ================= */
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 30px;
-  background: rgba(2, 6, 23, 0.85);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.nav h2 {
-  color: #38bdf8;
-}
-
-.nav ul {
-  display: flex;
-  gap: 25px;
-  list-style: none;
-}
-
-.nav li {
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.nav li:hover {
-  color: #38bdf8;
-}
-
-/* ================= HERO ================= */
-.hero {
-  text-align: center;
-  padding: 120px 20px;
-  background: radial-gradient(circle at top, #1e3a8a, #020617);
-}
-
-.hero h1 {
-  font-size: 3rem;
-  color: #38bdf8;
-}
-
-.hero h3 {
-  margin-top: 10px;
-  color: #cbd5f5;
-}
-
-.hero p {
-  margin: 20px 0;
-}
-
-/* ================= BUTTON ================= */
-.btn {
-  display: inline-block;
-  padding: 12px 26px;
-  background: linear-gradient(135deg, #38bdf8, #6366f1);
-  color: #020617;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-}
-
-/* ================= SECTIONS ================= */
-.section {
-  padding: 80px 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.section h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  color: #38bdf8;
-}
-
-/* ================= GRID ================= */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 15px;
-}
-
-.grid span {
-  background: #020617;
-  padding: 12px;
-  text-align: center;
-  border-radius: 10px;
-}
-
-/* ================= CARD ================= */
-.card {
-  background: #020617;
-  padding: 25px;
-  border-radius: 15px;
-}
-
-/* ================= CONTACT ================= */
-.contact {
-  text-align: center;
-  background: #020617;
-  border-radius: 20px;
-}
-
-/* ================= LOGOUT BUTTON ================= */
-.logout-btn {
-  padding: 6px 16px;
-  border-radius: 20px;
-  border: none;
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* ================= LOGIN PAGE (CENTERED) ================= */
-
+/* ================= LOGIN PAGE ================= */
 .login-page {
   min-height: 100vh;
-  width: 100vw;
-
   display: flex;
-  align-items: center;
   justify-content: center;
-
+  align-items: center;
   background: linear-gradient(135deg, #1e3a8a, #020617);
 }
 
 .login-card {
   width: 340px;
   padding: 30px;
-
   background: #020617;
   border-radius: 12px;
-
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
   text-align: center;
 }
@@ -159,17 +36,10 @@ body {
   margin-bottom: 5px;
 }
 
-.login-sub {
-  font-size: 13px;
-  color: #cbd5f5;
-  margin-bottom: 20px;
-}
-
 .login-card input {
   width: 100%;
   padding: 12px;
   margin-bottom: 15px;
-
   border-radius: 6px;
   border: none;
   outline: none;
@@ -178,76 +48,19 @@ body {
 .login-card button {
   width: 100%;
   padding: 12px;
-
-  background: linear-gradient(135deg, #38bdf8, #6366f1);
-  border: none;
   border-radius: 20px;
-
+  border: none;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
   font-weight: bold;
   cursor: pointer;
 }
 
-.login-footer {
-  margin-top: 15px;
-  font-size: 13px;
-}
-
-.login-footer span {
-  color: #38bdf8;
-  cursor: pointer;
-  font-weight: 600;
-}
-/* ================= POPUP MESSAGE ================= */
-
-.popup {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  color: white;
-
-  padding: 12px 20px;
-  border-radius: 8px;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  z-index: 9999;
-
-  animation: slideIn 0.4s ease, fadeOut 0.4s ease 1.6s;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(120%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
 /* ================= SIGNUP PAGE ================= */
-
 .signup-bg {
   min-height: 100vh;
-  width: 100vw;
-
   display: flex;
-  align-items: center;
   justify-content: center;
-
+  align-items: center;
   background: linear-gradient(135deg, #8b9dfc, #9f7aea);
 }
 
@@ -255,15 +68,10 @@ body {
 .signup-card {
   width: 420px;
   padding: 40px 35px;
-
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
   border-radius: 24px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
-
-  text-align: left;
 }
 
 /* Title */
@@ -279,118 +87,63 @@ body {
   width: 100%;
   padding: 14px 18px;
   margin-bottom: 14px;
-
   border-radius: 30px;
   border: none;
   outline: none;
-
-  font-size: 14px;
   background: #f4f6ff;
   color: #020617;
+  font-size: 14px;
 }
 
-/* Main Button */
+/* ================= SIGNUP BUTTON (UNIQUE) ================= */
 .signup-btn {
   width: 100%;
   padding: 14px;
-  margin-top: 10px;
-
+  margin-top: 12px;
   border-radius: 30px;
   border: none;
-
-  background: linear-gradient(135deg, #020617, #020617);
+  background: linear-gradient(135deg, #14161f, #44528d);
   color: #ffffff;
-
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Login Text */
+.signup-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(68, 82, 141, 0.45);
+}
+
+.signup-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Login text */
 .signup-login {
-  margin-top: 14px;
+  margin-top: 16px;
+  text-align: center;
   font-size: 13px;
   color: #020617;
-  text-align: center;
 }
 
 .signup-login span {
-  color: #020617;
   font-weight: 600;
   cursor: pointer;
   text-decoration: underline;
 }
 
-/* Divider */
-.signup-divider {
-  margin: 20px 0 15px;
-  text-align: center;
-  font-size: 13px;
-  color: #020617;
-}
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 480px) {
+  .signup-card {
+    width: 90%;
+    padding: 30px 20px;
+  }
 
-/* Social Buttons */
-.social {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 10px;
-
-  border-radius: 30px;
-  border: none;
-
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.social.google {
-  background: #ffffff;
-  color: #020617;
-}
-
-.social.facebook {
-  background: #1877f2;
-  color: white;
-}
-.contact-section {
-  background: linear-gradient(135deg, #020617, #0f172a);
-  padding: 80px 20px;
-  text-align: center;
-  color: white;
-}
-
-.contact-section h2 {
-  color: #38bdf8;
-  margin-bottom: 30px;
-}
-
-.contact-form {
-  max-width: 500px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  font-size: 14px;
-}
-
-.contact-form button {
-  padding: 12px;
-  border-radius: 25px;
-  border: none;
-  background: linear-gradient(90deg, #38bdf8, #6366f1);
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.contact-form button:hover {
-  opacity: 0.9;
+  .login-card {
+    width: 90%;
+  }
 }

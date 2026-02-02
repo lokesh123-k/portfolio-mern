@@ -100,7 +100,12 @@ export default function Signup({ onSignup, onLogin }) {
             onChange={handleChange}
           />
 
-          <button type="submit" disabled={loading}>
+          {/* ✅ UNIQUE SIGNUP BUTTON */}
+          <button
+            type="submit"
+            className="signup-btn"
+            disabled={loading}
+          >
             {loading ? "Creating account..." : "Sign Up"}
           </button>
         </form>
