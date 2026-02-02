@@ -1,7 +1,7 @@
 export default function Projects() {
   return (
-    <section className="section">
-      <h2>Projects & Entrepreneurship</h2>
+    <section className="section" id="projects">
+      <h2>Projects</h2>
 
       <div className="card">
         <h3>KL Stall & Decors</h3>
@@ -13,6 +13,16 @@ export default function Projects() {
           Tech Stack: HTML, CSS, JavaScript, React, Tailwind CSS,
           Supabase, Razorpay (Planned)
         </p>
+
+        {/* OPTIONAL: Project live link */}
+        <a
+          href="https://your-project-site.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn"
+        >
+          Visit Project
+        </a>
       </div>
     </section>
   );
